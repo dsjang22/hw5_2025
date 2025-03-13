@@ -1,49 +1,57 @@
-/* Step #1 
-Animate the logo only when the page is loaded in
-The logo does not have a class name in the HTML so use id instead and to do that, use '#'*/
+/* Step #1 */
+/* Animate the logo only when the page is loaded in using the values given */
+/* Use given keyframes reference to assign the opacity and width */
 @keyframes logoAnimation {
     from {width: 25px; opacity: 0;}
     to {width: 475px; opacity: 1;}
 }
+/* The logo does not have a class name in the HTML so use id instead, use '#' */
+/* Animation duration should be 5 seconds */
 #logo {
     animation-name: logoAnimation;
     animation-duration: 5s;
 }
 
 
-/* Step #2 
-Edit the body element to use the Poppins font (using Google fonts) with serif as a backup.  It should also use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1. */
+/* Step #2 */
+/* Have the font in the body to be 'Poppins' with serif as the backup */
+/* Set up the concrete background image with the specified background color */
 body {
     font-family: "Poppins", serif;
     background-image: url("../images/concrete_seamless.png");
     background-color: #f1f1f1;
 }
 
-/* Step #3 
-Edit the css for the header tag (all instances) to use flex to match our example.   
-- Use the Inspect element for this and play around with the different options for flex like adjust-content, align-items, flex-direction, etc... */
+
+/* Step #3 */
+/* Edit the header tag for all instances using the Inspect Element */ 
+/* Play around with the different options for flex like adjust-content, align-items, flex-direction, etc... to match the example given */
 header {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-/* Step #4 
-Just like step #3, use the Inspect element for this and play around with the different options for flex like adjust-content, align-items, flex-direction, etc... */
+
+/* Step #4 */
+/* Lke Step #3, use the Inspect Element to play around with the different options for flex like adjust-content, align-items, flex-direction, etc... to match the given example*/
+/* Modify only the nav_links class to use flex */
 .nav_links {
     display: flex;
     flex-direction: column;
 }
 
+
 /* Step #5 */
-/* Ensure links maintain the same color after being visited */
+/* Ensure the links in the navigation buttons maintain the same color after being visited */
 a:visited {
     color: #0000EE;
   }
 
 
-/* Step #6 
-Style ONLY the header elements that are direct children of a card class, Use Inspect Elements for this */
+/* Step #6 */
+/* Style ONLY the header elements that are direct children of a card class */
+/* Use Inspect Elements for this and apply all the requirements for this step */
 .card > header {
     background: #288088;
     border: 2px solid #45ADAD;
@@ -52,9 +60,11 @@ Style ONLY the header elements that are direct children of a card class, Use Ins
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
-/* This this second selector so the outercard also matches the corner curves as the headers above. Use Inspect Element for this*/
+
 
 /* Step #7 */
+/* This is the second selector for Step #6. The outercard also needs to match the corner curves as the headers in Step #6 so use the same syntax */
+/* Use flex and the different flex properties in Inspect Element to see what matches the mobile view example */
 .card {
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -64,7 +74,9 @@ Style ONLY the header elements that are direct children of a card class, Use Ins
     flex-basis: 450px;
 }
 
-/* Step #8 - Center pricing section */
+
+/* Step #8 */
+/* Use flex and its different properties in Inspect Element to center the pricing section horizontally and vertically */
 .pricing {
     display: flex;
     flex-direction: row;
@@ -73,16 +85,19 @@ Style ONLY the header elements that are direct children of a card class, Use Ins
     flex-wrap: wrap;
 }
 
-/* Step #9
-Style the images in the gallery so select specifically the gallery class and its images */
+
+/* Step #9 */
+/* Style the images in the gallery so select specifically the gallery class and its respective images with the required styling */
 .gallery img {
     border: 10px solid #50C7C7;
     margin: 10px;
     width: 300px;
 }
 
-/* Step #10 
-Edit the gallery class using flex and use Inspect Element to match the given screen shots*/
+
+/* Step #10 */
+/* Edit the gallery class using flex and its different properties in Inspect Element */
+/* Use the screenshots and their respective dimensions as a reference */
 .gallery{
     display: flex;
     flex-direction: row;
@@ -91,10 +106,13 @@ Edit the gallery class using flex and use Inspect Element to match the given scr
     flex-wrap: wrap;
 }
 
+
 /* Styles for screens greater than 900px */
 @media (min-width: 901px) {
 
     /* Step #11 */
+    /* Use flex and its different properties in Inspect Element */
+    /* Make sure the logo is on the far left as possible with the links on the far right as possible on the same row */
     header{
         flex-direction: row;
         justify-content: space-between;
@@ -103,28 +121,35 @@ Edit the gallery class using flex and use Inspect Element to match the given scr
         flex-direction: row;
     }
 
+
     /* Step #12 */
+    /* Use a specific flex property to specify a size of 275px */
+    /* The elements should have the same width size */
     .card {
         flex-basis: 275px;
     }
 
+
     /* Step #13 */
-    /* The header that contains the logo and the navigation buttons need to be fixed when scrolling and take up the entire width. Use the immediate child (>) selector */
+    /* The header that contains the logo and the navigation buttons need to be fixed when scrolling and take up the same width as its parent */
+    /* Use the immediate child (>) selector */
     body > header {
         position: fixed;
         width: 100%;
     }
     /* Need to add spacing for step #13 since some of the content in the body element get covered up by the fixed header */
+    /* Play around with different pixels */
     .about {
         padding-top: 80px; 
     }
-    
 
   }
 
 
 /* Step #14 */
+/* Styles for when user prefers reduced motion */
 /* The logo is not animated for the 'perfers-reduced-motion' option, use a media query for this */
+/* Use a specific feature in Inspect Element to test this */
 @media (prefers-reduced-motion: reduce) {
     #logo {
         animation: none;
@@ -132,30 +157,38 @@ Edit the gallery class using flex and use Inspect Element to match the given scr
 }
 
 
-/* When the page is printed in portrait mode */
+/* Styles when the page is printed in portrait mode */
 @media print {
-    /* Change font to Arial with Helvetica as a backup and remove the background image */
     body {
         /* Step #15 */
+        /* Change font to Arial with Helvetica as a backup */
         font-family: Arial, Helvetica;
+
         /* Step #16 */
+        /* Remove the background image */
         background-image: none; 
     }
 
+
     /* Step #17 */
-    /* Need to add flex and make it into a row, then add spacing to each of the buttons */
+    /* Need to add flex and have the elements in a row */
+    /* Add spacing to each of the elements in the navigation */
     .nav_links {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
-    /* This is needed for even spacing, allows the nav bar to take up the entire width of its parent which in this case is the header with the logo. */
+    /* This is needed for even spacing */
+    /* This allows the nav bar to take up the entire width of its parent which in this case is the header with the logo */
     header > nav {
         width: 100%;
     }
 
+
     /* Step #18 */
-    /* Edit .pricing by adding flex and have it line up into one line of row. Make sure to align the flex items verticlaly since the flex direction is row */
+    /* Add flex and have the elements line up into one line of row */
+    /* Make sure to align the elements vertically since the flex direction is row */
+    /* The bottom of the elements should be aligned so use some flex properties in Inspect Element for this */
     .pricing {
         display: flex;
         flex-direction: row;
@@ -163,19 +196,27 @@ Edit the gallery class using flex and use Inspect Element to match the given scr
         align-items:flex-end;
     }
 
+
     /* Step #19 */
-    /* Add the solid border with specific color as well as a new flex-basis value into .card */
+    /* Add the solid border with the specified color as well as a new flex-basis value into the card class */
     .card {
         border: 2px solid #45ADDD;
         flex-basis: 325px;
     }
 
-    /* Step #20: No gallery */
-    /* Make sure to include the id gallery (#gallery) as well to hide the header as well as the images */
+
+    /* Step #20 */
+    /* Include the id gallery (#gallery) to hide the header as well as the images in the gallery */
     #gallery, .gallery {
         display: none;
     }
 
-    /* Step #21 */
 
+    /* Step #21 */
+    /* Add a yellow thumbs-up emoji using its unicode after the second list item in the pricing section */
+    /* Target only the second <li> element within any <ul> inside the .pricing class */
+    /* Use the ::after pseudo-element to insert the emoji right after the content */
+    .pricing ul li:nth-child(2)::after {
+        content: "\1F44D"; 
+    }
 }
