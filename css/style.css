@@ -1,0 +1,181 @@
+/* Step #1 
+Animate the logo only when the page is loaded in
+The logo does not have a class name in the HTML so use id instead and to do that, use '#'*/
+@keyframes logoAnimation {
+    from {width: 25px; opacity: 0;}
+    to {width: 475px; opacity: 1;}
+}
+#logo {
+    animation-name: logoAnimation;
+    animation-duration: 5s;
+}
+
+
+/* Step #2 
+Edit the body element to use the Poppins font (using Google fonts) with serif as a backup.  It should also use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1. */
+body {
+    font-family: "Poppins", serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/* Step #3 
+Edit the css for the header tag (all instances) to use flex to match our example.   
+- Use the Inspect element for this and play around with the different options for flex like adjust-content, align-items, flex-direction, etc... */
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Step #4 
+Just like step #3, use the Inspect element for this and play around with the different options for flex like adjust-content, align-items, flex-direction, etc... */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Step #5 */
+/* Ensure links maintain the same color after being visited */
+a:visited {
+    color: #0000EE;
+  }
+
+
+/* Step #6 
+Style ONLY the header elements that are direct children of a card class, Use Inspect Elements for this */
+.card > header {
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+/* This this second selector so the outercard also matches the corner curves as the headers above. Use Inspect Element for this*/
+
+/* Step #7 */
+.card {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+
+    display: flex;
+    flex-direction: column; /* Ensures a vertical layout */
+    flex-basis: 450px;
+}
+
+/* Step #8 - Center pricing section */
+.pricing {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    flex-wrap: wrap;
+}
+
+/* Step #9
+Style the images in the gallery so select specifically the gallery class and its images */
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* Step #10 
+Edit the gallery class using flex and use Inspect Element to match the given screen shots*/
+.gallery{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Styles for screens greater than 900px */
+@media (min-width: 901px) {
+
+    /* Step #11 */
+    header{
+        flex-direction: row;
+        justify-content: space-between;
+    }   
+    .nav_links{
+        flex-direction: row;
+    }
+
+    /* Step #12 */
+    .card {
+        flex-basis: 275px;
+    }
+
+    /* Step #13 */
+    /* The header that contains the logo and the navigation buttons need to be fixed when scrolling and take up the entire width. Use the immediate child (>) selector */
+    body > header {
+        position: fixed;
+        width: 100%;
+    }
+    /* Need to add spacing for step #13 since some of the content in the body element get covered up by the fixed header */
+    .about {
+        padding-top: 80px; 
+    }
+    
+
+  }
+
+
+/* Step #14 */
+/* The logo is not animated for the 'perfers-reduced-motion' option, use a media query for this */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+
+
+/* When the page is printed in portrait mode */
+@media print {
+    /* Change font to Arial with Helvetica as a backup and remove the background image */
+    body {
+        /* Step #15 */
+        font-family: Arial, Helvetica;
+        /* Step #16 */
+        background-image: none; 
+    }
+
+    /* Step #17 */
+    /* Need to add flex and make it into a row, then add spacing to each of the buttons */
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    /* This is needed for even spacing, allows the nav bar to take up the entire width of its parent which in this case is the header with the logo. */
+    header > nav {
+        width: 100%;
+    }
+
+    /* Step #18 */
+    /* Edit .pricing by adding flex and have it line up into one line of row. Make sure to align the flex items verticlaly since the flex direction is row */
+    .pricing {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items:flex-end;
+    }
+
+    /* Step #19 */
+    /* Add the solid border with specific color as well as a new flex-basis value into .card */
+    .card {
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* Step #20: No gallery */
+    /* Make sure to include the id gallery (#gallery) as well to hide the header as well as the images */
+    #gallery, .gallery {
+        display: none;
+    }
+
+    /* Step #21 */
+
+}
