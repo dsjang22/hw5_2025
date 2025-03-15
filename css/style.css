@@ -1,6 +1,7 @@
 /* Step #1 */
 /* Animate the logo only when the page is loaded in using the values given */
 /* Use given keyframes reference to assign the opacity and width */
+/* The width should start with 25px and grow to 475px. The opacity should start at 0 and end with 1 */
 @keyframes logoAnimation {
     from {width: 25px; opacity: 0;}
     to {width: 475px; opacity: 1;}
@@ -15,7 +16,8 @@
 
 /* Step #2 */
 /* Have the font in the body to be 'Poppins' with serif as the backup */
-/* Set up the concrete background image with the specified background color */
+/* Set up the concrete background image: “concrete_seamless.png” and the specified background color: #f1f1f1 */
+/* Make sure the concreate image is in the images folder */
 body {
     font-family: "Poppins", serif;
     background-image: url("../images/concrete_seamless.png");
@@ -43,7 +45,8 @@ header {
 
 
 /* Step #5 */
-/* Ensure the links in the navigation buttons maintain the same color after being visited */
+/* Ensure the links in the navigation buttons maintain the same color after being visited so use ':visited' */
+/* This color: #0000EE seems like the color that matches the links color before visited */
 a:visited {
     color: #0000EE;
   }
@@ -52,6 +55,7 @@ a:visited {
 /* Step #6 */
 /* Style ONLY the header elements that are direct children of a card class */
 /* Use Inspect Elements for this and apply all the requirements for this step */
+/* The background should be #288088, with solid 2px border using #45ADAD, and 20px of padding on the top and the bottom, and lastly 50px border-radius on the top left and right corners */
 .card > header {
     background: #288088;
     border: 2px solid #45ADAD;
@@ -88,6 +92,7 @@ a:visited {
 
 /* Step #9 */
 /* Style the images in the gallery so select specifically the gallery class and its respective images with the required styling */
+/* The images should have a solid 10px border with a color of #50C7C7 and 10px margin on all four sides and a width of 300px */
 .gallery img {
     border: 10px solid #50C7C7;
     margin: 10px;
@@ -96,7 +101,7 @@ a:visited {
 
 
 /* Step #10 */
-/* Edit the gallery class using flex and its different properties in Inspect Element */
+/* Edit the gallery class using flex and its different properties in Inspect Element like before */
 /* Use the screenshots and their respective dimensions as a reference */
 .gallery{
     display: flex;
@@ -111,7 +116,7 @@ a:visited {
 @media (min-width: 901px) {
 
     /* Step #11 */
-    /* Use flex and its different properties in Inspect Element */
+    /* Use flex and its different properties in Inspect Element like before, don't use position properties */
     /* Make sure the logo is on the far left as possible with the links on the far right as possible on the same row */
     header{
         flex-direction: row;
@@ -124,7 +129,7 @@ a:visited {
 
     /* Step #12 */
     /* Use a specific flex property to specify a size of 275px */
-    /* The elements should have the same width size */
+    /* The elements should have the same width size and its okay if the heights don't have the same size */
     .card {
         flex-basis: 275px;
     }
@@ -146,8 +151,9 @@ a:visited {
   }
 
 
-/* Step #14 */
 /* Styles for when user prefers reduced motion */
+
+/* Step #14 */
 /* The logo is not animated for the 'perfers-reduced-motion' option, use a media query for this */
 /* Use a specific feature in Inspect Element to test this */
 @media (prefers-reduced-motion: reduce) {
@@ -199,6 +205,7 @@ a:visited {
 
     /* Step #19 */
     /* Add the solid border with the specified color as well as a new flex-basis value into the card class */
+    /* The elements should have a solid border 2px of #45ADDD and use flex-basis of 325px */
     .card {
         border: 2px solid #45ADDD;
         flex-basis: 325px;
@@ -206,6 +213,7 @@ a:visited {
 
 
     /* Step #20 */
+    /* All parts of the gallery should be hidden */
     /* Include the id gallery (#gallery) to hide the header as well as the images in the gallery */
     #gallery, .gallery {
         display: none;
